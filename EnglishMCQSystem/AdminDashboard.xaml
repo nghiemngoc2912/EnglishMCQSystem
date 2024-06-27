@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EnglishMCQSystem"
         mc:Ignorable="d"
-        Title="AdminDashboard" Height="450" Width="800">
+        Title="AdminDashboard" Height="650" Width="1196">
     <Grid>
-        <StackPanel>
-            <WrapPanel>
-                <Button>Dashboard</Button>
-                <Button>Home</Button>
-                <Button>Users</Button>
-                <Button>Exams</Button>
-                <Button>Questions</Button>
-            </WrapPanel>
-            <DataGrid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- Navigation Bar -->
+        <ListBox x:Name="Navigation" Width="150" SelectionChanged="Navigation_SelectionChanged">
+            <ListBoxItem IsSelected="True" Content="Dashboard"/>
+            <ListBoxItem Content="List of Users"/>
+            <ListBoxItem Content="List of Questions"/>
+            <ListBoxItem Content="List of Tests"/>
+        </ListBox>
+        <Frame x:Name="ContentFrame" Grid.Column="1"/>
 
-            </DataGrid>
-        </StackPanel>
     </Grid>
 </Window>

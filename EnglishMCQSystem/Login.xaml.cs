@@ -30,8 +30,12 @@ namespace EnglishMCQSystem
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             var user = ems.Users.Where(u => u.Username == txtUsername.Text && u.Password == txtPassword.Password).FirstOrDefault();
+            
+
             if (user != null)
             {
+                SessionManager.Instance.CurrentUser = user;
+                //save into session
                 if(user.RoleId == 1)
                 {
                     AdminDashboard admin = new AdminDashboard();

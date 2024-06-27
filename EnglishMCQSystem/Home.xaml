@@ -7,15 +7,16 @@
         mc:Ignorable="d"
         Title="Home" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <WrapPanel>
-                <Button>Home</Button>
-                <Button>Profile</Button>
-                <Button>History</Button>
-            </WrapPanel>
-            <DataGrid>
-                
-            </DataGrid>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- Navigation Bar -->
+        <ListBox x:Name="Navigation" Width="150" SelectionChanged="Navigation_SelectionChanged">
+            <ListBoxItem IsSelected="True" Content="Home"/>
+            <ListBoxItem Content="Profile"/>
+            <ListBoxItem Content="History"/>
+        </ListBox>
+        <Frame x:Name="ContentFrame" Grid.Column="1"/>
     </Grid>
 </Window>

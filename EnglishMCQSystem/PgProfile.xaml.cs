@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace EnglishMCQSystem
 {
     /// <summary>
-    /// Interaction logic for ChangePassword.xaml
+    /// Interaction logic for Profile.xaml
     /// </summary>
-    public partial class ChangePassword : Window
+    public partial class PgProfile : Page
     {
-        public ChangePassword()
+        public PgProfile()
         {
             InitializeComponent();
-        }
-
-        private void btnChangePassword_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

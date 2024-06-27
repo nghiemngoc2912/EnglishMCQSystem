@@ -22,6 +22,26 @@ namespace EnglishMCQSystem
         public Home()
         {
             InitializeComponent();
+            ContentFrame.Navigate(new PgHome());
+        }
+        private void Navigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var listBox = sender as ListBox;
+            if (listBox.SelectedItem is ListBoxItem selectedItem)
+            {
+                switch (selectedItem.Content)
+                {
+                    case "Home":
+                        ContentFrame.Navigate(new PgHome());
+                        break;
+                    case "Profile":
+                        ContentFrame.Navigate(new PgProfile());
+                        break;
+                    case "History":
+                        ContentFrame.Navigate(new PgHistory());
+                        break;
+                }
+            }
         }
     }
 }
