@@ -50,29 +50,35 @@ namespace EnglishMCQSystem
             {
                 //input not empty
                 MessageBox.Show("Please fill all the fields");
+                return;
             }else if (!System.Text.RegularExpressions.Regex.IsMatch(email, emailPattern))
             {
                 //email not valid
                 MessageBox.Show("Email not valid");
+                return;
             }else if (password.Length < 8)
             {
                 //password length less than 8
                 MessageBox.Show("Password length must be at least 8 characters");
+                return;
             }
             else if (!password.Equals(confirmPassword))
             {
                 //password and confirm password do not match
                 MessageBox.Show("Password and Confirm Password do not match");
+                return;
             }
             //check in db if username or email already exists
             else if (context.Users.Any(u => u.Username == username))
             {
                 //username already exists
                 MessageBox.Show("Username already exists");
+                return;
             }else if (context.Users.Any(u => u.Email == email))
             {
                 //email already exists
                 MessageBox.Show("Email already exists");
+                return;
             }
             else
             {
