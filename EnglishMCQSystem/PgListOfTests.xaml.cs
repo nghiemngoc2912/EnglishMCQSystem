@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishMCQSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +11,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace EnglishMCQSystem
 {
     /// <summary>
-    /// Interaction logic for Profile.xaml
+    /// Interaction logic for PgListOfTests.xaml
     /// </summary>
-    public partial class Profile : Window
+    public partial class PgListOfTests : Page
     {
-        public Profile()
+        EnglishMcqsystemContext context = new EnglishMcqsystemContext();
+        public PgListOfTests()
         {
             InitializeComponent();
+            var data= context.Tests.ToList();
+            dgTests.ItemsSource = null;
+            dgTests.ItemsSource = data;
         }
+
     }
 }

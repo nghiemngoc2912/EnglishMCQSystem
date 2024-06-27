@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace EnglishMCQSystem
 {
     /// <summary>
-    /// Interaction logic for ChangePassword.xaml
+    /// Interaction logic for PgDashboard.xaml
     /// </summary>
-    public partial class ChangePassword : Window
+    public partial class PgDashboard : Page
     {
-        public ChangePassword()
+        public PgDashboard()
         {
             InitializeComponent();
-        }
-
-        private void btnChangePassword_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

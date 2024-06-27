@@ -97,36 +97,36 @@ SET IDENTITY_INSERT Tests OFF;
 SET IDENTITY_INSERT Questions ON;
 INSERT INTO Questions (Id,[Text],CorrectAnswer)
 VALUES (1,'With increased economic development, the demand for the metal has grown at a faster ____________ than it is being mined.
-(A) pace
-(B)  move
-(C) step
-(D) manner','A'),
+A. pace
+B. move
+C. step
+D. manner','A'),
 (2,'Greenhouse gases ____________ into the atmosphere cause this long-wave radiation to increase. Thus, heat is trapped inside of our planet and creates a general warming effect.
-(A) appeared
-(B)  released
-(C) exposed
-(D) revealed','B'),
+A. appeared
+B. released
+C. exposed
+D. revealed','B'),
 (3,'Photosynthesis is a ____________ that removes carbon dioxide from the atmosphere and converts it into organic carbon and oxygen that feeds almost every ecosystem.
-(A) formation
-(B) growth
-(C) movement
-(D) process','D'),
+A. formation
+B. growth
+C. movement
+D. process','D'),
 (4,'Central co-operative banks ____________ all the business of a joint stock bank.
-(A) direct
-(B) manage
-(C) conduct
-(D) account','C'),
+A. direct
+B. manage
+C. conduct
+D. account','C'),
 (5,'In terms of spatial distribution, rainfall during this season was most conducive for augmenting agricultural ____________ this year.
-(A) consumption
-(B) saving
-(C) labour
-(D)','D'),
+A. consumption
+B. saving
+C. labour
+D.','D'),
 (6,'The two friends always back                up in everything they do.
 A. each other 
 B. one another
 C. themselves 
 D. ourselves','A'),
-(7,'“I’m taking my first exam next week.”                          –“            .”
+(7,'I am taking my first exam next week.                          
 A. Cheers
 B. Good luck 
 C. Well done 
@@ -225,10 +225,10 @@ VALUES (1,1),
 GO
 SET IDENTITY_INSERT UserTests ON;
 INSERT INTO UserTests (Id,UserId,TestId,Score,TestDate)
-VALUES(1,1,1,10,'2024-07-01 14:30:00'),
-	  (2,2,1,10,'2024-07-01 10:30:00'),
-	  (3,2,1,10,'2024-07-01 12:30:00'),
-	  (4,2,2,10,'2024-07-01 13:30:00');
+VALUES(1,1,1,10,'2024-05-01 14:30:00'),
+	  (2,2,1,10,'2024-05-01 10:30:00'),
+	  (3,2,1,10,'2024-05-01 12:30:00'),
+	  (4,2,2,10,'2024-05-01 13:30:00');
 SET IDENTITY_INSERT UserTests OFF;
 GO
 SET IDENTITY_INSERT UserTestAnswers ON;

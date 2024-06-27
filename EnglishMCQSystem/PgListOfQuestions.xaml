@@ -1,0 +1,30 @@
+﻿<Page x:Class="EnglishMCQSystem.PgListOfQuestions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EnglishMCQSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1000"
+      Title="PgListOfQuestions">
+
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <DataGrid Name="dgQuestions" SelectionChanged="dgQuestions_SelectionChanged">
+                </DataGrid>
+                <Label Margin="5">ID:</Label>
+                <TextBox Margin="5" x:Name="txtID" IsReadOnly="True"></TextBox>
+                <Label Margin="5">Text:</Label>
+                <TextBox Margin="5" x:Name="txtText"></TextBox>
+                <Label Margin="5">CorrectAnswer:</Label>
+                <ComboBox Margin="5" Name="cboCorrectAnswer">
+                    <ComboBoxItem IsSelected="True" Content="A"/>
+                    <ComboBoxItem Content="B"/>
+                    <ComboBoxItem Content="C"/>
+                    <ComboBoxItem Content="D"/>
+                </ComboBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
