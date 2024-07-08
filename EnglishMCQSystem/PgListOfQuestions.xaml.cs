@@ -91,6 +91,7 @@ namespace EnglishMCQSystem
             Question question = new Question();
             question.Text = txtText.Text;
             question.CorrectAnswer = cboCorrectAnswer.Text;
+            question.IsActive = true;
             context.Add(question);
             context.SaveChanges();
             MessageBox.Show("Question added successfully");

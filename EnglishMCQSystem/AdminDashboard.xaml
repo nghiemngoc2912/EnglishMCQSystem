@@ -18,6 +18,7 @@
             <ListBoxItem Content="List of Tests"/>
             <ListBoxItem Content="List of Questions"/>
             <ListBoxItem Content="Home"/>
+            <ListBoxItem Content="Log out"/>
         </ListBox>
         <Frame x:Name="ContentFrame" Grid.Column="1"/>
 

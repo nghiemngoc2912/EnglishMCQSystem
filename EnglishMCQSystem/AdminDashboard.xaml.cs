@@ -49,6 +49,12 @@ namespace EnglishMCQSystem
                         home.Show();
                         this.Close();
                         break;
+                    case "Log out":
+                        SessionManager.Instance.CurrentUser = null;
+                        Login login = new Login();
+                        login.Show();
+                        Window.GetWindow(this).Close();
+                        break;
                 }
             }
         }
