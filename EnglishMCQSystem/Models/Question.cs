@@ -11,6 +11,8 @@ public partial class Question
 
     public string CorrectAnswer { get; set; } = null!;
 
+    public bool IsActive { get; set; }
+
     public virtual ICollection<UserTestAnswer> UserTestAnswers { get; set; } = new List<UserTestAnswer>();
 
     public virtual ICollection<Test> Tests { get; set; } = new List<Test>();

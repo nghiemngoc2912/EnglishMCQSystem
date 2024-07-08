@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace EnglishMCQSystem.Models;
 
@@ -29,18 +27,15 @@ public partial class EnglishMcqsystemContext : DbContext
 
     public virtual DbSet<UserTestAnswer> UserTestAnswers { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
-        var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: true);
-        IConfigurationRoot configuration = builder.Build();
-        optionsBuilder.UseSqlServer(configuration.GetConnectionString("MyCnn"));
-    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("server=WOLFGIRL2912;database=EnglishMCQSystem;uid=sa;pwd=123;TrustServerCertificate=True;");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Question>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Question__3214EC07B0ED2E74");
+            entity.HasKey(e => e.Id).HasName("PK__Question__3214EC07F01B0E6F");
 
             entity.Property(e => e.CorrectAnswer).HasMaxLength(255);
             entity.Property(e => e.Text).HasMaxLength(255);
@@ -48,14 +43,14 @@ public partial class EnglishMcqsystemContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Roles__3214EC074CBCEA83");
+            entity.HasKey(e => e.Id).HasName("PK__Roles__3214EC07F1C87D3C");
 
             entity.Property(e => e.Name).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Test>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Tests__3214EC0786BB6FEB");
+            entity.HasKey(e => e.Id).HasName("PK__Tests__3214EC0754B9D67C");
 
             entity.Property(e => e.DifficultyLevel)
                 .HasMaxLength(10)
@@ -77,16 +72,16 @@ public partial class EnglishMcqsystemContext : DbContext
                         .HasConstraintName("FK__TestQuest__TestI__2E1BDC42"),
                     j =>
                     {
-                        j.HasKey("TestId", "QuestionId").HasName("PK__TestQues__5C1F379AF4C0B262");
+                        j.HasKey("TestId", "QuestionId").HasName("PK__TestQues__5C1F379A322627B3");
                         j.ToTable("TestQuestions");
                     });
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07FA582177");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07D6DA2E6F");
 
-            entity.HasIndex(e => e.Username, "UQ__Users__536C85E4FDD4D5D2").IsUnique();
+            entity.HasIndex(e => e.Username, "UQ__Users__536C85E4A6B8B6C0").IsUnique();
 
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
@@ -107,7 +102,7 @@ public partial class EnglishMcqsystemContext : DbContext
 
         modelBuilder.Entity<UserTest>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserTest__3214EC078ED3192F");
+            entity.HasKey(e => e.Id).HasName("PK__UserTest__3214EC07E15D0239");
 
             entity.Property(e => e.TestDate)
                 .HasDefaultValueSql("(getdate())")
@@ -124,7 +119,7 @@ public partial class EnglishMcqsystemContext : DbContext
 
         modelBuilder.Entity<UserTestAnswer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserTest__3214EC07A628D4DE");
+            entity.HasKey(e => e.Id).HasName("PK__UserTest__3214EC07A138BD5F");
 
             entity.Property(e => e.UserAnswer).HasMaxLength(255);
 

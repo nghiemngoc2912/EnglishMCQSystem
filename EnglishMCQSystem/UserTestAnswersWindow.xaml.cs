@@ -27,9 +27,11 @@ namespace EnglishMCQSystem
         }
         EnglishMcqsystemContext context = new EnglishMcqsystemContext();
         public ObservableCollection<dynamic> Questions { get; set; }
+        UserTest currentUserTest;
         public UserTestAnswersWindow(UserTest userTest)
         {
             InitializeComponent();
+            currentUserTest = userTest;
             txtName.Text = userTest.Test.Name;
             var userTestAnswers = context.UserTestAnswers
                 .Where(uta => uta.UserTestId == userTest.Id)
@@ -42,6 +44,21 @@ namespace EnglishMCQSystem
                 .ToList();
             dgUserTestAnswer.ItemsSource = null;
             dgUserTestAnswer.ItemsSource = userTestAnswers;
+        }
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            
+            TestWindow testWindow = new TestWindow(currentUserTest.Test);
+            testWindow.Show();
+            //close other windows
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() != typeof(TestWindow))
+                {
+                    window.Close();
+                }
+            }
         }
     }
 }

@@ -29,13 +29,7 @@ namespace EnglishMCQSystem
             txtUsername.Text = user.Username;
         }
 
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
-        {
-            SessionManager.Instance.CurrentUser = null;
-            Login login = new Login();
-            login.Show();
-            Window.GetWindow(this).Close();
-        }
+        
         EnglishMcqsystemContext context = new EnglishMcqsystemContext();
         private void btnUpdateProfile_Click(object sender, RoutedEventArgs e)
         {

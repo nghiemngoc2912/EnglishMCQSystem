@@ -9,22 +9,42 @@
       Title="PgListOfQuestions">
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="600"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+            
+        <ScrollViewer x:Name="scrollViewer" Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <DataGrid Name="dgQuestions" SelectionChanged="dgQuestions_SelectionChanged">
-                </DataGrid>
-                <Label Margin="5">ID:</Label>
+                    <DataGrid Name="dgQuestions" SelectionChanged="dgQuestions_SelectionChanged">
+                    </DataGrid>
+                </StackPanel>
+            </ScrollViewer>
+            <StackPanel Grid.Column="1">
+                <WrapPanel>
+                    <TextBox x:Name="txtSearchName" Margin="5" Width="250"></TextBox>
+                    <Button x:Name="btnSearch" Margin="5" Click="btnSearch_Click">Search Question</Button>
+                </WrapPanel>
+                
+                <WrapPanel>
+                    <Button x:Name="btnAdd" Margin="5" Click="btnAdd_Click" >Add Question</Button>
+                    <Button x:Name="btnUpdate" Margin="5" Click="btnUpdate_Click" >Update Question</Button>
+                </WrapPanel>
+            <Label Margin="5">ID:</Label>
                 <TextBox Margin="5" x:Name="txtID" IsReadOnly="True"></TextBox>
                 <Label Margin="5">Text:</Label>
-                <TextBox Margin="5" x:Name="txtText"></TextBox>
+                <TextBox AcceptsReturn="True"
+                 TextWrapping="Wrap" Margin="5" x:Name="txtText"></TextBox>
                 <Label Margin="5">CorrectAnswer:</Label>
                 <ComboBox Margin="5" Name="cboCorrectAnswer">
-                    <ComboBoxItem IsSelected="True" Content="A"/>
+                    <ComboBoxItem Content="A"/>
                     <ComboBoxItem Content="B"/>
                     <ComboBoxItem Content="C"/>
                     <ComboBoxItem Content="D"/>
                 </ComboBox>
             </StackPanel>
-        </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>

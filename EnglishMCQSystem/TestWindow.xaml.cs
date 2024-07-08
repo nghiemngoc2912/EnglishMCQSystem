@@ -105,6 +105,11 @@ namespace EnglishMCQSystem
             }
         }
 
-
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Close();
+        }
     }
 }

@@ -16,6 +16,7 @@
             <ListBoxItem IsSelected="True" Content="Home"/>
             <ListBoxItem Content="Profile"/>
             <ListBoxItem Content="History"/>
+            <ListBoxItem Content="Logout"/>
         </ListBox>
         <Frame x:Name="ContentFrame" Grid.Column="1"/>
     </Grid>

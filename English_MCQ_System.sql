@@ -28,6 +28,7 @@ CREATE TABLE Users (
     [Password] VARCHAR(20) NOT NULL,
 	[Name] NVARCHAR(50) NOT NULL,
     Email VARCHAR(50),
+	IsActive Bit,
     [RoleId] int NOT NULL,
 	FOREIGN KEY (RoleId) REFERENCES Roles(Id)
 );

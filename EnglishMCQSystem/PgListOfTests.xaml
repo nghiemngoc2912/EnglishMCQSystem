@@ -9,10 +9,31 @@
       Title="PgListOfTests">
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <DataGrid x:Name="dgTests">
-                
-            </DataGrid>
-        </ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer Grid.Column="0" x:Name="scrollViewerTests" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <DataGrid x:Name="dgTests" SelectionChanged="dgTests_SelectionChanged">
+
+                </DataGrid>
+
+            </ScrollViewer>
+
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Margin="5"  HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" x:Name="txtName"></TextBlock>
+                <TextBlock Margin="5"  HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" x:Name="txtDifficultyLevel"></TextBlock>
+                <TextBlock Margin="5"  HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" x:Name="txtNumOfQuestions"></TextBlock>
+                <ScrollViewer x:Name="scrollViewerTestQuestions" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <DataGrid x:Name="dgTestQuestions">
+
+                    </DataGrid>
+                </ScrollViewer>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Page>

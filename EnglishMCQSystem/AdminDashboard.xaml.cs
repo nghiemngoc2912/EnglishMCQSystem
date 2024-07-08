@@ -23,7 +23,7 @@ namespace EnglishMCQSystem
         public AdminDashboard()
         {
             InitializeComponent();
-
+            ContentFrame.Navigate(new PgDashboard());
         }
         private void Navigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -43,6 +43,11 @@ namespace EnglishMCQSystem
                         break;
                     case "List of Tests":
                         ContentFrame.Navigate(new PgListOfTests());
+                        break;
+                    case "Home":
+                        Home home = new Home();
+                        home.Show();
+                        this.Close();
                         break;
                 }
             }

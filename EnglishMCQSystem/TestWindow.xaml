@@ -10,6 +10,7 @@
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <StackPanel>
                 <TextBlock HorizontalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="36"  x:Name="txtName"></TextBlock>
+                <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Click="Cancel_Click" />
                 <ListBox x:Name="lboxQuestions" Margin="10">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
