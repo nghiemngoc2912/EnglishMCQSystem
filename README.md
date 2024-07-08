@@ -7,4 +7,4 @@ To login by admin, fill the following information:
 username: admin
 password: admin1234
 
-Feel free to contact me by email nghiemngoc2912@gmail.com if it gets trouble!
+Feel free to contact me by email nghiemngoc2912@gmail.com if you get into any troubles!
