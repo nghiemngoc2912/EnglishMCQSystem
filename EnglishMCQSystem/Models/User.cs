@@ -13,7 +13,9 @@ public partial class User
 
     public string Name { get; set; } = null!;
 
-    public string? Email { get; set; }
+    public string Email { get; set; } = null!;
+
+    public bool IsActive { get; set; }
 
     public int RoleId { get; set; }
 

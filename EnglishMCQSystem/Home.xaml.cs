@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishMCQSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace EnglishMCQSystem
         public Home()
         {
             InitializeComponent();
+            //check if the user is admin then add the admin dashboard to list item
+            User user = SessionManager.Instance.CurrentUser;
+            if (user.RoleId == 1)
+            {
+                Navigation.Items.Add(new ListBoxItem { Content = "Admin Dashboard" });
+            }
             ContentFrame.Navigate(new PgHome());
         }
         private void Navigation_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -39,6 +46,17 @@ namespace EnglishMCQSystem
                         break;
                     case "History":
                         ContentFrame.Navigate(new PgHistory());
+                        break;
+                    case "Logout":
+                        SessionManager.Instance.CurrentUser = null;
+                        Login login = new Login();
+                        login.Show();
+                        Window.GetWindow(this).Close();
+                        break;
+                    case "Admin Dashboard":
+                        AdminDashboard adminDashboard = new AdminDashboard();
+                        adminDashboard.Show();
+                        Window.GetWindow(this).Close();
                         break;
                 }
             }

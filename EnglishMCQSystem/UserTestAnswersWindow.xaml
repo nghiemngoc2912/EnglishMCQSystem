@@ -11,6 +11,7 @@
             <StackPanel>
                 <TextBlock HorizontalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="36"  x:Name="txtName"></TextBlock>
                 <DataGrid x:Name="dgUserTestAnswer"></DataGrid>
+                <Button Margin="5" Width="100" x:Name="btnTest" Click="btnTest_Click">Do the test again</Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>

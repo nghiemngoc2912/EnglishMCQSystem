@@ -34,6 +34,11 @@ namespace EnglishMCQSystem
 
             if (user != null)
             {
+                if (user.IsActive == false)
+                {
+                    MessageBox.Show("Account is not active, maybe ban from admin");
+                    return;
+                }
                 SessionManager.Instance.CurrentUser = user;
                 //save into session
                 if(user.RoleId == 1)

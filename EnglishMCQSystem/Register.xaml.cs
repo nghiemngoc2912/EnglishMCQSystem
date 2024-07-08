@@ -85,10 +85,11 @@ namespace EnglishMCQSystem
                 //create new user
                 User user = new User();
                 user.Name = name;
-                user.Email = email;
+                user.Email = email.ToLower();
                 user.Username = username;
                 user.Password = password;
                 user.RoleId = 2;
+                user.IsActive = true;
                 context.Users.Add(user);
                 context.SaveChanges();
                 MessageBox.Show("User registered successfully");

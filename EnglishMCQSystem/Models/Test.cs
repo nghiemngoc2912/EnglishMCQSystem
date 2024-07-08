@@ -13,6 +13,8 @@ public partial class Test
 
     public int? NumOfQuestions { get; set; }
 
+    public bool IsActive { get; set; }
+
     public virtual ICollection<UserTest> UserTests { get; set; } = new List<UserTest>();
 
     public virtual ICollection<Question> Questions { get; set; } = new List<Question>();

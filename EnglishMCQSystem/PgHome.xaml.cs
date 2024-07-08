@@ -26,6 +26,7 @@ namespace EnglishMCQSystem
         {
             InitializeComponent();
             var data = context.Tests
+                .Where(t => t.IsActive)
                 .Select(t => new
                 {
                     Id = t.Id,

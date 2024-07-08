@@ -27,7 +27,8 @@ CREATE TABLE Users (
     Username VARCHAR(50) NOT NULL UNIQUE,
     [Password] VARCHAR(20) NOT NULL,
 	[Name] NVARCHAR(50) NOT NULL,
-    Email VARCHAR(50),
+    Email VARCHAR(50) NOT NULL,
+	IsActive Bit NOT NULL,
     [RoleId] int NOT NULL,
 	FOREIGN KEY (RoleId) REFERENCES Roles(Id)
 );
@@ -37,12 +38,14 @@ CREATE TABLE Tests (
     [Name] VARCHAR(50) NOT NULL,
     DifficultyLevel VARCHAR(10),
 	NumOfQuestions int,
+	IsActive Bit NOT NULL
 );
 GO
 CREATE TABLE Questions (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     [Text] NVARCHAR(255) NOT NULL,
-    CorrectAnswer NVARCHAR(255) NOT NULL
+    CorrectAnswer NVARCHAR(255) NOT NULL,
+	IsActive Bit NOT NULL
 );
 GO
 CREATE TABLE TestQuestions (
@@ -82,128 +85,128 @@ SET IDENTITY_INSERT Roles OFF
 GO
 
 SET IDENTITY_INSERT Users ON;
-INSERT INTO Users (Id,Username, [Password],[Name], Email, RoleId)
-VALUES (1,'admin', 'admin1234', 'Nghiem Ngoc','nghiemngoc291204@gmail.com', 1),
-       (2,'user1', 'user1234', 'Nghiem Ngoc','nghiemngoc2912@gmail.com', 2);
+INSERT INTO Users (Id,Username, [Password],[Name], Email, RoleId,IsActive)
+VALUES (1,'admin', 'admin1234', 'Nghiem Ngoc','nghiemngoc291204@gmail.com', 1,1),
+       (2,'user1', 'user1234', 'Nghiem Ngoc','nghiemngoc2912@gmail.com', 2,1);
 	   SET IDENTITY_INSERT Users OFF;
 	   GO
 SET IDENTITY_INSERT Tests ON;
-INSERT INTO Tests (Id,[Name], DifficultyLevel, NumOfQuestions)
-VALUES (1,'Midterm English SU24', 'Easy', 5),
-       (2,'Final Exam SP22', 'Medium', 10);
+INSERT INTO Tests (Id,[Name], DifficultyLevel, NumOfQuestions,IsActive)
+VALUES (1,'Midterm English SU24', 'Easy', 5,1),
+       (2,'Final Exam SP22', 'Medium', 10,1);
 SET IDENTITY_INSERT Tests OFF;
 	   GO
 
 SET IDENTITY_INSERT Questions ON;
-INSERT INTO Questions (Id,[Text],CorrectAnswer)
+INSERT INTO Questions (Id,[Text],CorrectAnswer,IsActive)
 VALUES (1,'With increased economic development, the demand for the metal has grown at a faster ____________ than it is being mined.
 A. pace
 B. move
 C. step
-D. manner','A'),
+D. manner','A',1),
 (2,'Greenhouse gases ____________ into the atmosphere cause this long-wave radiation to increase. Thus, heat is trapped inside of our planet and creates a general warming effect.
 A. appeared
 B. released
 C. exposed
-D. revealed','B'),
+D. revealed','B',1),
 (3,'Photosynthesis is a ____________ that removes carbon dioxide from the atmosphere and converts it into organic carbon and oxygen that feeds almost every ecosystem.
 A. formation
 B. growth
 C. movement
-D. process','D'),
+D. process','D',1),
 (4,'Central co-operative banks ____________ all the business of a joint stock bank.
 A. direct
 B. manage
 C. conduct
-D. account','C'),
+D. account','C',1),
 (5,'In terms of spatial distribution, rainfall during this season was most conducive for augmenting agricultural ____________ this year.
 A. consumption
 B. saving
 C. labour
-D.','D'),
+D.','D',1),
 (6,'The two friends always back                up in everything they do.
 A. each other 
 B. one another
 C. themselves 
-D. ourselves','A'),
+D. ourselves','A',1),
 (7,'I am taking my first exam next week.                          
 A. Cheers
 B. Good luck 
 C. Well done 
-D. Congratulations','B'),
+D. Congratulations','B',1),
 (8,'She sings ________ beautifully that everyone enjoys her performances.
 A. so
 B. too
 C. such
-D. very','A'),
+D. very','A',1),
 (9,'I would like ________ a doctor someday.
 A. becoming
 B. to become
 C. become
-D. becomes','B'),
+D. becomes','B',1),
 (10,'We have known each other ________ we were children.
 A. since
 B. for
 C. from
-D. during','A'),
+D. during','A',1),
 (11,'The package arrived ________ the expected delivery date.
 A. on
 B. in
 C. at
-D. before','A'),
+D. before','A',1),
 (12,'She finished the project ________ the deadline.
 A. before
 B. in
 C. at
-D. on','A'),
+D. on','A',1),
 
 (13,'He will arrive ________ 3 PM.
 A. in
 B. on
 C. at
-D. before','C'),
+D. before','C',1),
 
 (14,'They moved to the city ________ 2019.
 A. at
 B. in
 C. on
-D. before','B'),
+D. before','B',1),
 
 (15,'The concert starts ________ 8 pm.
 A. in
 B. on
 C. at
-D. before','C'),
+D. before','C',1),
 
 (16,'I have an appointment ________ Monday.
 A. on
 B. in
 C. at
-D. before','A'),
+D. before','A',1),
 
 (17,'We met ________ a coffee shop.
 A. in
 B. on
 C. at
-D. before','C'),
+D. before','C',1),
 
 (18,'She was born ________ July.
 A. on
 B. in
 C. at
-D. before','B'),
+D. before','B',1),
 
 (19,'They will return ________ a week.
 A. on
 B. in
 C. at
-D. before','B'),
+D. before','B',1),
 
 (20,'The meeting is scheduled ________ the afternoon.
 A. on
 B. in
 C. at
-D. before','B');
+D. before','B',1);
 SET IDENTITY_INSERT Questions OFF;
 GO
 INSERT INTO TestQuestions (TestId,QuestionId)
