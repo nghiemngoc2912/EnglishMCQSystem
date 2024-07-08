@@ -44,6 +44,7 @@
                     <ComboBoxItem Content="C"/>
                     <ComboBoxItem Content="D"/>
                 </ComboBox>
+                <CheckBox Margin="5" x:Name="chkActive" Click="chkActive_Click">Active</CheckBox>
             </StackPanel>
         </Grid>
     </Grid>

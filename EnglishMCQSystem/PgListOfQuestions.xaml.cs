@@ -43,7 +43,8 @@ namespace EnglishMCQSystem
                 {
                     q.Id,
                     q.Text,
-                    q.CorrectAnswer
+                    q.CorrectAnswer,
+                    q.IsActive
                 }).ToList();
             dgQuestions.ItemsSource = null;
             dgQuestions.ItemsSource = questions;
@@ -55,6 +56,7 @@ namespace EnglishMCQSystem
             txtID.Text = "";
             txtText.Text = "";
             cboCorrectAnswer.Text = "";
+            chkActive.IsChecked = false;
         }
 
         private void dgQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -68,6 +70,7 @@ namespace EnglishMCQSystem
             txtID.Text = selectedQuestion.Id.ToString();
             txtText.Text = selectedQuestion.Text;
             cboCorrectAnswer.Text = selectedQuestion.CorrectAnswer;
+            chkActive.IsChecked = selectedQuestion.IsActive;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -117,6 +120,7 @@ namespace EnglishMCQSystem
             Question question = context.Questions.Find(int.Parse(id));
             question.Text = txtText.Text;
             question.CorrectAnswer = cboCorrectAnswer.Text;
+            question.IsActive = chkActive.IsChecked.Value;
             context.Update(question);
             context.SaveChanges();
             MessageBox.Show("Question updated successfully");
@@ -136,6 +140,29 @@ namespace EnglishMCQSystem
             dgQuestions.ItemsSource = null;
             dgQuestions.ItemsSource = questions;
             ClearForm();
+        }
+
+        private void chkActive_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedQuestion = (dynamic)dgQuestions.SelectedItem;
+            if (selectedQuestion == null)
+            {
+                return;
+            }
+            Question question = context.Questions.Find(selectedQuestion.Id);
+            if (question == null)
+            {
+                return;
+            }
+            if(MessageBox.Show("Are you sure you want to change the status of this question?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.No)
+            {
+                chkActive.IsChecked = question.IsActive;
+                return;
+            }
+            question.IsActive = chkActive.IsChecked.Value;
+            context.Update(question);
+            context.SaveChanges();
+            LoadData();
         }
     }
 }

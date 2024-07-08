@@ -5,14 +5,51 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EnglishMCQSystem"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="PgListOfUsers">
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-
-            <DataGrid x:Name="dgUsers">
-            </DataGrid>
-        </ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer  Grid.Column="0"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <DataGrid x:Name="dgUsers" SelectionChanged="dgUsers_SelectionChanged">
+                </DataGrid>
+            </ScrollViewer>
+            <StackPanel Grid.Column="1" Margin="0,50,0,0">
+                <WrapPanel HorizontalAlignment="Center">
+                    <TextBox x:Name="txtSearchName" Margin="5" Width="200"></TextBox>
+                    <Button x:Name="btnSearch" Margin="5" Click="btnSearch_Click">Search User</Button>
+                </WrapPanel>
+                <WrapPanel>
+                    <Button x:Name="btnChangePassword"  Content="Change password" Margin="5" Click="btnChangePassword_Click"></Button>
+                </WrapPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0">Name:</Label>
+                    <TextBox x:Name="txtName" Margin="5" Grid.Row="0" Grid.Column="1" IsReadOnly="True"></TextBox>
+                    <Label Grid.Row="1" Grid.Column="0">Email:</Label>
+                    <TextBox x:Name="txtEmail" Margin="5" Grid.Row="1" Grid.Column="1" IsReadOnly="True"></TextBox>
+                    <Label Grid.Row="2" Grid.Column="0">Username:</Label>
+                    <TextBox IsReadOnly="True" x:Name="txtUsername" Margin="5" Grid.Row="2" Grid.Column="1"></TextBox>
+                    <Label Grid.Row="3" Grid.Column="0">Role:</Label>
+                    <TextBox IsReadOnly="True" x:Name="txtRole" Margin="5" Grid.Row="3" Grid.Column="1"></TextBox>
+                    <CheckBox x:Name="chkActive" Grid.Row="4" Grid.Column="1" Margin="5" Click="chkActive_Click" >Active</CheckBox>
+                </Grid>
+                
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

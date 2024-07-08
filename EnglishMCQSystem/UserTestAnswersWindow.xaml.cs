@@ -48,7 +48,11 @@ namespace EnglishMCQSystem
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (!currentUserTest.Test.IsActive)
+            {
+                MessageBox.Show("Test is not active");
+                return;
+            }
             TestWindow testWindow = new TestWindow(currentUserTest.Test);
             testWindow.Show();
             //close other windows

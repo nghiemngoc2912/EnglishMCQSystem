@@ -35,7 +35,7 @@ namespace EnglishMCQSystem
         {
             var user = SessionManager.Instance.CurrentUser;
             String name = txtName.Text;
-            String email = txtEmail.Text;
+            String email = txtEmail.Text.ToLower();
             String emailPattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
             //check input valid
             if (name.Equals("") || email.Equals(""))
@@ -50,7 +50,7 @@ namespace EnglishMCQSystem
                 MessageBox.Show("Email not valid");
                 return;
             }
-            else if (context.Users.Where(u=>u.Email==email)!=null) {
+            else if (!user.Email.Equals(email)&&context.Users.Where(u=>u.Email==email)!=null) {
                 //check email exist
                 MessageBox.Show("Email already exist");
                 return;
