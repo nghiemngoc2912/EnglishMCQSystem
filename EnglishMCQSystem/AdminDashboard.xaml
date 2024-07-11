@@ -12,13 +12,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <!-- Navigation Bar -->
-        <ListBox x:Name="Navigation" Width="150" SelectionChanged="Navigation_SelectionChanged">
-            <ListBoxItem IsSelected="True" Content="Dashboard"/>
-            <ListBoxItem Content="List of Users"/>
-            <ListBoxItem Content="List of Tests"/>
-            <ListBoxItem Content="List of Questions"/>
-            <ListBoxItem Content="Home"/>
-            <ListBoxItem Content="Log out"/>
+        <ListBox Background="AliceBlue" x:Name="Navigation" Width="170" SelectionChanged="Navigation_SelectionChanged">
+            <ListBoxItem Foreground="Blue" FontSize="20" IsSelected="True" Content="Dashboard"/>
+            <ListBoxItem Foreground="Blue" FontSize="20" Content="List of Users"/>
+            <ListBoxItem Foreground="Blue" FontSize="20" Content="List of Tests"/>
+            <ListBoxItem Foreground="Blue" FontSize="20" Content="List of Questions"/>
+            <ListBoxItem Foreground="Blue" FontSize="20" Content="Home"/>
+            <ListBoxItem Foreground="Blue" FontSize="20" Content="Log out"/>
         </ListBox>
         <Frame x:Name="ContentFrame" Grid.Column="1"/>
 

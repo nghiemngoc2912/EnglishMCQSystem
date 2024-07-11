@@ -8,7 +8,7 @@
         Title="Register" Height="300" Width="400">
     <Grid>
         <StackPanel Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="36" FontWeight="Bold">Register</TextBlock>
+            <TextBlock FontSize="36" FontWeight="Bold" Foreground="Blue">Register</TextBlock>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120"></ColumnDefinition>
@@ -42,16 +42,6 @@
                 <Button Name="btnRegister" Grid.Column="0" Width="100" Margin="5" HorizontalAlignment="Left" Click="btnRegister_Click">Register</Button>
                 <Button Name="btnLogin" Grid.Column="1" Margin="5" Width="100" HorizontalAlignment="Right" Click="btnLogin_Click">Login</Button>
             </Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                
-                <Button Name="btnExit" Grid.Column="0" Margin="5" Width="100" HorizontalAlignment="Left" Click="btnExit_Click">Exit</Button>
-            </Grid>
-
-
         </StackPanel>
     </Grid>
 </Window>

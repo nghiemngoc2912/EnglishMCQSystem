@@ -68,8 +68,6 @@ namespace EnglishMCQSystem
 
         private void LoadQuestion(dynamic selectedTest)
         {
-            double verticalOffset = scrollViewerTestQuestions.VerticalOffset;
-            double horizontalOffset = scrollViewerTestQuestions.HorizontalOffset;
             int id = selectedTest.Id;
             txtName.Text = selectedTest.Name.ToString();
             txtDifficultyLevel.Text = "Difficulty Level: " + selectedTest.DifficultyLevel.ToString();
@@ -89,8 +87,6 @@ namespace EnglishMCQSystem
             dgTestQuestions.Visibility = Visibility.Visible;
             dgTestQuestions.ItemsSource = null;
             dgTestQuestions.ItemsSource = questions;
-            scrollViewerTestQuestions.ScrollToVerticalOffset(verticalOffset);
-            scrollViewerTestQuestions.ScrollToHorizontalOffset(horizontalOffset);
         }
 
         private void chkIsActive_Click(object sender, RoutedEventArgs e)
@@ -138,6 +134,24 @@ namespace EnglishMCQSystem
         {
             AddTest addTest = new AddTest();
             addTest.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string search = txtSearchName.Text;
+            var data = context.Tests
+                .Where(t => t.Name.Contains(search))
+                .Select(t => new
+                {
+                    t.Id,
+                    t.Name,
+                    t.DifficultyLevel,
+                    t.NumOfQuestions,
+                    t.IsActive
+                }).ToList();
+            dgTests.ItemsSource = null;
+            dgTests.ItemsSource = data;
+            ClearForm();
         }
     }
 }

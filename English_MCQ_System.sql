@@ -80,7 +80,7 @@ SET IDENTITY_INSERT UserTestAnswers OFF;
 SET IDENTITY_INSERT Roles ON;
 INSERT INTO Roles (Id,[Name])
 VALUES (1,'Admin'),
-	   (2,'Examiner');
+	   (2,'Examinee');
 SET IDENTITY_INSERT Roles OFF
 GO
 
@@ -123,8 +123,8 @@ D. account','C',1),
 A. consumption
 B. saving
 C. labour
-D.','D',1),
-(6,'The two friends always back                up in everything they do.
+D. production','D',1),
+(6,'The two friends always back __________ up in everything they do.
 A. each other 
 B. one another
 C. themselves 

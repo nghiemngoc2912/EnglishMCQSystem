@@ -27,7 +27,10 @@ namespace EnglishMCQSystem
             User user = SessionManager.Instance.CurrentUser;
             if (user.RoleId == 1)
             {
-                Navigation.Items.Add(new ListBoxItem { Content = "Admin Dashboard" });
+                Navigation.Items.Add(new ListBoxItem { Content = "Admin Page",
+                                                       FontSize = 20 ,
+                                                       Foreground = Brushes.Blue
+                    });
             }
             ContentFrame.Navigate(new PgHome());
         }
@@ -53,7 +56,7 @@ namespace EnglishMCQSystem
                         login.Show();
                         Window.GetWindow(this).Close();
                         break;
-                    case "Admin Dashboard":
+                    case "Admin Page":
                         AdminDashboard adminDashboard = new AdminDashboard();
                         adminDashboard.Show();
                         Window.GetWindow(this).Close();

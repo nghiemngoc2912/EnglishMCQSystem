@@ -6,28 +6,30 @@
       xmlns:local="clr-namespace:EnglishMCQSystem"
       xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="PgDashboard">
-
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="txtNumOfUser" FontSize="20"></TextBlock>
-            <TextBlock x:Name="txtNumOfTest" FontSize="20"></TextBlock>
-            <TextBlock x:Name="txtNumOfQuestion" FontSize="20"></TextBlock>
-            <TextBlock x:Name="txtNumOfTestTaken" FontSize="20"></TextBlock>
+        <StackPanel>
+        <TextBlock Margin="5" Foreground="Blue" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold">Dashboard</TextBlock>
+            <Grid Height="550">
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="txtNumOfUser" FontSize="20"></TextBlock>
+                <TextBlock x:Name="txtNumOfTest" FontSize="20"></TextBlock>
+                <TextBlock x:Name="txtNumOfQuestion" FontSize="20"></TextBlock>
+                <TextBlock x:Name="txtNumOfTestTaken" FontSize="20"></TextBlock>
+            </StackPanel>
+            <ScottPlot:WpfPlot IsEnabled="False" Grid.Row="0" Grid.Column="1" x:Name="pltNumOfTimesTest" />
+            <ScottPlot:WpfPlot IsEnabled="False" Grid.Row="1" Grid.Column="1" x:Name="pltAverageScore" />
+            <ScottPlot:WpfPlot IsEnabled="False" Grid.Row="1" Grid.Column="0" x:Name="pltNumOfTestTaken" />
+        </Grid>
         </StackPanel>
-        <ScottPlot:WpfPlot Grid.Row="0" Grid.Column="1" x:Name="pltNumOfTimesTest" />
-        <ScottPlot:WpfPlot Grid.Row="1" Grid.Column="1" x:Name="pltAverageScore" />
-        <ScottPlot:WpfPlot Grid.Row="1" Grid.Column="0" x:Name="pltNumOfTestTaken" />
-
-
     </Grid>
 </Page>

@@ -25,11 +25,6 @@ namespace EnglishMCQSystem
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
