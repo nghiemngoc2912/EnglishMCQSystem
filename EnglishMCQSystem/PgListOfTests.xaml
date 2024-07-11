@@ -22,8 +22,10 @@
 
             </ScrollViewer>
             <StackPanel Grid.Column="1">
-                
-                
+                <WrapPanel HorizontalAlignment="Center">
+                    <TextBox x:Name="txtSearchName" Margin="5" Width="250"></TextBox>
+                    <Button x:Name="btnSearch" Margin="5" Click="btnSearch_Click">Search Test</Button>
+                </WrapPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
@@ -43,10 +45,8 @@
                     <TextBlock Margin="5" Grid.Column="1" Grid.Row="2"  x:Name="txtNumOfQuestions"></TextBlock>
                     <CheckBox Margin="5" Grid.Column="0" Grid.Row="3" x:Name="chkIsActive" Click="chkIsActive_Click">Active</CheckBox>
                 </Grid>
-                <ScrollViewer x:Name="scrollViewerTestQuestions" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <DataGrid x:Name="dgTestQuestions">
+                <DataGrid MaxHeight="400" MaxWidth="500" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="dgTestQuestions">
                     </DataGrid>
-                </ScrollViewer>
                 <WrapPanel>
                     <Button Margin="5" x:Name="btnAdd" Click="btnAdd_Click">Add New Test</Button>
                     <Button Margin="5" x:Name="btnUpdate" Click="btnUpdate_Click">Update Test</Button>

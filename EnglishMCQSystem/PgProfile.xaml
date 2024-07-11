@@ -9,7 +9,7 @@
       Title="PgProfile">
     <Grid>
             <StackPanel  Width="350" Margin="0,50,0,0">
-                <TextBlock FontSize="36" FontWeight="Bold">Profile</TextBlock>
+                <TextBlock Foreground="Blue" FontSize="36" FontWeight="Bold">Profile</TextBlock>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"></ColumnDefinition>

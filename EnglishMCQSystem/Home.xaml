@@ -12,11 +12,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <!-- Navigation Bar -->
-        <ListBox x:Name="Navigation" Width="150" SelectionChanged="Navigation_SelectionChanged">
-            <ListBoxItem IsSelected="True" Content="Home"/>
-            <ListBoxItem Content="Profile"/>
-            <ListBoxItem Content="History"/>
-            <ListBoxItem Content="Logout"/>
+        <ListBox x:Name="Navigation" Width="170" Background="AliceBlue" SelectionChanged="Navigation_SelectionChanged">
+            <ListBoxItem FontSize="20" Foreground="Blue" IsSelected="True" Content="Home"/>
+            <ListBoxItem FontSize="20" Foreground="Blue" Content="Profile"/>
+            <ListBoxItem FontSize="20" Foreground="Blue" Content="History"/>
+            <ListBoxItem FontSize="20" Foreground="Blue" Content="Logout"/>
         </ListBox>
         <Frame x:Name="ContentFrame" Grid.Column="1"/>
     </Grid>
